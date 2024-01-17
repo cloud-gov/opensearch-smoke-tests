@@ -18,6 +18,9 @@ type testConfig struct {
 	ElasticsearchMasterIpAddress string `json:"elasticsearch_master_ip"`
 	ElasticsearchMasterPort      string `json:"elasticsearch_master_port"`
 	ElasticsearchAppIndex        string `json:"elasticsearch_app_index"`
+	OpensearchCa                 string `json:"opensearch_ca"`
+	OpensearchCert               string `json:"opensearch_cert"`
+	OpensearchKey                string `json:"opensearch_key"`
 }
 
 func loadConfig(path string) (cfg testConfig) {

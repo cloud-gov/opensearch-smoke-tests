@@ -66,7 +66,7 @@ var _ = Describe("Logsearch", func() {
 		testURI := elasticURI(elasticEndpoint) + "/" + index + "/_search?q=@cf.app:" + appName
 		fmt.Println("Curling url: ", testURI)
 
-		curl := runner.Curl(strings.ToLower(testURI)).Wait(timeout)
+		curl := runner.Curl(strings.ToLower(testURI), "--cacert ", config.OpensearchCa, "--cert ", config.OpensearchCert, "--key ", config.OpensearchKey).Wait(timeout)
 		Expect(curl).To(Exit(0))
 		elasticResponse := string(curl.Out.Contents())
 
